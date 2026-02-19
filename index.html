@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Larry Santucci | Consumer Finance Researcher</title>
+  <meta name="description" content="Larry Santucci — Senior Advisor & Research Fellow at the Federal Reserve Bank of Philadelphia Consumer Finance Institute. Research on consumer credit, fair lending, elder financial health, and AI/ML applications.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+    body { font-family: 'Lato', sans-serif; color: #212121; line-height: 1.6; }
+    a { color: #006580; text-decoration: none; transition: color 0.2s; }
+    a:hover { color: #004d60; }
+    img { max-width: 100%; height: auto; }
+    h2 { font-size: 2rem; font-weight: 300; color: #1e6c93; margin-bottom: 1.25rem; letter-spacing: 0.5px; }
+    h3 { font-size: 1.3rem; font-weight: 700; color: #333; margin: 2rem 0 0.75rem; }
+    h4 { font-size: 1.05rem; font-weight: 700; color: #555; margin: 1.5rem 0 0.5rem; }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 60px 0; }
+    section:nth-of-type(even) { background: #f2f2f2; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; width: 100%; background: #212121; z-index: 1000; }
+    nav .container { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    nav .logo { color: #fff; font-size: 1.1rem; font-weight: 300; letter-spacing: 1px; white-space: nowrap; }
+    nav .logo strong { font-weight: 700; }
+    nav ul { list-style: none; display: flex; gap: 4px; }
+    nav ul li a { color: rgba(255,255,255,0.75); font-size: 0.85rem; font-weight: 400; padding: 8px 12px; border-radius: 4px; transition: all 0.2s; }
+    nav ul li a:hover, nav ul li a.active { color: #fff; background: rgba(255,255,255,0.12); }
+    .menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .menu-toggle span { display: block; width: 22px; height: 2px; background: #fff; margin: 5px 0; transition: 0.3s; }
+
+    /* HERO */
+    #about { background: linear-gradient(135deg, #1e6c93 0%, #155a7a 100%); color: #fff; padding: 120px 0 80px; }
+    .hero-grid { display: flex; gap: 48px; align-items: flex-start; }
+    .hero-text { flex: 1; }
+    .hero-text h1 { font-size: 2.8rem; font-weight: 300; margin-bottom: 0.25rem; }
+    .hero-text .title { font-size: 1.15rem; font-weight: 300; opacity: 0.9; margin-bottom: 0.15rem; }
+    .hero-text .institution { font-size: 1rem; font-weight: 300; opacity: 0.75; margin-bottom: 1.5rem; }
+    .hero-text .summary { font-size: 1rem; font-weight: 300; line-height: 1.7; opacity: 0.92; margin-bottom: 1.5rem; }
+    .hero-photo { flex: 0 0 220px; }
+    .hero-photo img { width: 220px; height: 280px; object-fit: cover; border-radius: 6px; border: 3px solid rgba(255,255,255,0.25); }
+    .research-interests { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+    .research-interests li { background: rgba(255,255,255,0.15); padding: 5px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 400; }
+
+    /* CREED */
+    .creed-card { background: #fff; border-left: 4px solid #1e6c93; border-radius: 4px; padding: 28px 32px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .creed-card h3 { color: #1e6c93; margin-top: 0; font-size: 1.4rem; }
+    .creed-card p { margin-bottom: 0.75rem; }
+
+    /* PUBLICATIONS */
+    .pub-list { list-style: none; }
+    .pub-list li { padding: 10px 0; border-bottom: 1px solid #e0e0e0; }
+    .pub-list li:last-child { border-bottom: none; }
+    .pub-year { display: inline-block; font-weight: 700; color: #1e6c93; min-width: 42px; margin-right: 6px; }
+    .pub-title { font-weight: 700; color: #006580; }
+    .pub-title:hover { color: #004d60; text-decoration: underline; }
+    .pub-details { display: block; font-size: 0.92rem; color: #555; margin-top: 2px; padding-left: 48px; }
+
+    /* WIP */
+    .wip-list { list-style: disc; padding-left: 24px; }
+    .wip-list li { padding: 6px 0; }
+    .wip-title { font-style: italic; }
+    .wip-coauthors { font-size: 0.92rem; color: #555; }
+
+    /* EVENTS */
+    .event-list { list-style: none; }
+    .event-list li { padding: 8px 0; border-bottom: 1px solid #e0e0e0; }
+    .event-list li:last-child { border-bottom: none; }
+    .event-date { font-weight: 700; color: #1e6c93; }
+
+    /* MEDIA */
+    .media-list { list-style: none; }
+    .media-list li { padding: 6px 0; border-bottom: 1px solid #e0e0e0; }
+    .media-list li:last-child { border-bottom: none; }
+    .media-date { font-weight: 700; }
+    .media-outlet { font-size: 0.92rem; color: #555; }
+
+    /* EDUCATION */
+    .edu-item { margin-bottom: 1.25rem; }
+    .edu-item .degree { font-weight: 700; font-size: 1.05rem; }
+    .edu-item .school { font-style: italic; color: #555; }
+    .edu-item .note { font-size: 0.9rem; color: #777; }
+    .skills-grid { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 1rem; }
+    .skill-group { flex: 1; min-width: 200px; }
+    .skill-group h4 { margin-top: 0; }
+    .skill-tags { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; }
+    .skill-tags li { background: #e8f1f5; color: #1e6c93; padding: 4px 12px; border-radius: 14px; font-size: 0.85rem; }
+
+    /* CONTACT */
+    #contact { background: linear-gradient(135deg, #1e6c93 0%, #155a7a 100%); color: #fff; }
+    #contact h2 { color: #fff; }
+    .contact-links { list-style: none; display: flex; flex-wrap: wrap; gap: 16px; margin-top: 1rem; }
+    .contact-links a { color: #fff; background: rgba(255,255,255,0.15); padding: 10px 20px; border-radius: 4px; font-weight: 400; transition: background 0.2s; }
+    .contact-links a:hover { background: rgba(255,255,255,0.25); color: #fff; }
+
+    /* FOOTER */
+    footer { background: #1a1a1a; color: rgba(255,255,255,0.6); padding: 24px 0; font-size: 0.8rem; text-align: center; line-height: 1.5; }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      nav ul { display: none; flex-direction: column; position: absolute; top: 60px; left: 0; width: 100%; background: #212121; padding: 12px 0; }
+      nav ul.open { display: flex; }
+      nav ul li a { display: block; padding: 12px 24px; }
+      .menu-toggle { display: block; }
+      .hero-grid { flex-direction: column-reverse; gap: 24px; }
+      .hero-photo { flex: none; text-align: center; }
+      .hero-photo img { width: 180px; height: 230px; }
+      .hero-text h1 { font-size: 2rem; }
+      h2 { font-size: 1.6rem; }
+      .pub-details { padding-left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="container">
+    <div class="logo"><strong>Larry</strong> Santucci</div>
+    <button class="menu-toggle" aria-label="Toggle menu" onclick="document.querySelector('nav ul').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#creed">CREED</a></li>
+      <li><a href="#publications">Research</a></li>
+      <li><a href="#conferences">Conferences</a></li>
+      <li><a href="#media">Media</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO / ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <h1>Larry Santucci</h1>
+        <div class="title">Senior Advisor &amp; Research Fellow</div>
+        <div class="institution">Federal Reserve Bank of Philadelphia · Consumer Finance Institute</div>
+        <p class="summary">
+          Senior economist and consumer credit expert with 14 years of Federal Reserve experience
+          specializing in consumer finance, machine learning applications in credit underwriting, and
+          advanced techniques in data analysis. Co-founder of the Center for the Restoration of Economic
+          Data (CREED). Author of 25+ research papers on consumer credit markets, financial inclusion,
+          and fairness in algorithmic lending.
+        </p>
+        <ul class="research-interests">
+          <li>Consumer Credit Markets</li>
+          <li>Fair Lending &amp; ML</li>
+          <li>Elder Financial Health</li>
+          <li>Housing Discrimination</li>
+          <li>AI/ML in Research</li>
+          <li>Financial Advice</li>
+        </ul>
+      </div>
+      <div class="hero-photo">
+        <img src="Santucci_Larry_23_10.jpg" alt="Larry Santucci headshot">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREED -->
+<section id="creed">
+  <div class="container">
+    <h2>CREED</h2>
+    <div class="creed-card">
+      <h3>Center for the Restoration of Economic Data</h3>
+      <p>
+        CREED is a Federal Reserve Bank of Philadelphia initiative I co-founded that transforms
+        historical paper archives into research-ready datasets using OCR, digitization, and AI/ML
+        techniques. The project combines large language models with established methods to extract
+        structured data from historical documents at scale.
+      </p>
+      <p>
+        Our research demonstrates when modular LLM-based approaches outperform hyperspecialized
+        models for historical document analysis, and the resulting datasets enable new research on
+        topics including housing discrimination, wealth inequality, and economic history.
+      </p>
+      <p>
+        In August 2024, we hosted <em>From Rasters to Rows: New Methods and Applications in
+        Automated Data Extraction</em> at the Philadelphia Fed, bringing together researchers
+        working at the frontier of automated data extraction.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="container">
+    <h2>Publications &amp; Research</h2>
+
+    <!-- Journal Publications -->
+    <h3>Journal Publications</h3>
+    <ul class="pub-list">
+      <li>
+        <span class="pub-year">2024</span>
+        <a href="#" class="pub-title">"One Threshold Doesn't Fit All: Tailoring Machine Learning Predictions of Consumer Default for Lower-Income Areas"</a>
+        <span class="pub-details">Meursault, Vitaly, Daniel Moulton, Larry Santucci, and Nathan Schor. <em>Journal of Policy Analysis and Management</em> 44(1): 249–276.</span>
+      </li>
+      <li>
+        <span class="pub-year">2020</span>
+        <a href="#" class="pub-title">"Documenting Racially Restrictive Covenants in 20th Century Philadelphia"</a>
+        <span class="pub-details">Santucci, Larry. <em>Cityscape</em> 22(3): 241–260.</span>
+      </li>
+      <li>
+        <span class="pub-year">2000</span>
+        <a href="#" class="pub-title">"Is Money Useful in the Conduct of Monetary Policy?"</a>
+        <span class="pub-details">Dotsey, Michael, Carl D. Lantz, and Larry Santucci. <em>Economic Quarterly</em> 86(4): 23–48.</span>
+      </li>
+    </ul>
+
+    <!-- Book Chapters -->
+    <h3>Book Chapters</h3>
+    <ul class="pub-list">
+      <li>
+        <span class="pub-year">2025</span>
+        <a href="#" class="pub-title">"The Racial Wealth Gap and the Legacy of Racially Restrictive Housing Covenants"</a>
+        <span class="pub-details">Santucci, Larry. In <em>Reducing Retirement Inequality: Building Wealth and Old-Age Resilience</em>, edited by Olivia S. Mitchell and Nikolai Roussanov. Oxford University Press.</span>
+      </li>
+    </ul>
+
+    <!-- Working Papers -->
+    <h3>Working Papers</h3>
+    <ul class="pub-list">
+      <li>
+        <span class="pub-year">2022</span>
+        <a href="#" class="pub-title">"Foreclosure Kids: Examining the Early Adult Credit Usage of Adolescents Affected by Foreclosure"</a>
+        <span class="pub-details">With Alaina Barca and Leigh-Ann Schultz. Federal Reserve Bank of Philadelphia Working Paper No. 22-21.</span>
+      </li>
+    </ul>
+
+    <!-- Discussion Papers -->
+    <h3>Discussion Papers</h3>
+    <ul class="pub-list">
+      <li>
+        <span class="pub-year">2025</span>
+        <a href="#" class="pub-title">"Combining AI and Established Methods for Historical Document Analysis"</a>
+        <span class="pub-details">With Daniel Moulton and Robyn Smith. Federal Reserve Bank of Philadelphia.</span>
+      </li>
+      <li>
+        <span class="pub-year">2020</span>
+        <a href="#" class="pub-title">"Deconstructing Mechanic's Liens"</a>
+        <span class="pub-details">With Lauren Lambie-Hanson and Jeanne Rentezelas. Federal Reserve Bank of Philadelphia Discussion Paper No. DP 20-04.</span>
+      </li>
+      <li>
+        <span class="pub-year">2019</span>
+        <a href="#" class="pub-title">"How Prevalent Were Racially Restrictive Covenants in 20th Century Philadelphia? A New Spatial Data Set Provides Answers"</a>
+        <span class="pub-details">Federal Reserve Bank of Philadelphia Discussion Paper No. 19-5.</span>
+      </li>
+      <li>
+        <span class="pub-year">2019</span>
+        <a href="#" class="pub-title">"Moving into the Mainstream: Who Graduates from Secured Credit Card Programs?"</a>
+        <span class="pub-details">Federal Reserve Bank of Philadelphia Discussion Paper No. 19-2.</span>
+      </li>
+      <li>
+        <span class="pub-year">2018</span>
+        <a href="#" class="pub-title">"Quantifying Cyber Risk in the Financial Services Industry"</a>
+        <span class="pub-details">Federal Reserve Bank of Philadelphia Discussion Paper No. 18-3.</span>
+      </li>
+      <li>
+        <span class="pub-year">2018</span>
+        <a href="#" class="pub-title">"Combining Forces to Combat Elder Financial Victimization"</a>
+        <span class="pub-details">With Jeanne Rentezelas. Federal Reserve Bank of Philadelphia Discussion Paper No. 18-2.</span>
+      </li>
+      <li>
+        <span class="pub-year">2017</span>
+        <a href="#" class="pub-title">"Can Data Sharing Help Financial Institutions Improve the Financial Health of Older Americans?"</a>
+        <span class="pub-details">Federal Reserve Bank of Philadelphia Discussion Paper No. 17-1.</span>
+      </li>
+      <li>
+        <span class="pub-year">2016</span>
+        <a href="#" class="pub-title">"What Happened to the Revolving Credit Card Balances of 2009?"</a>
+        <span class="pub-details">Federal Reserve Bank of Philadelphia Discussion Paper No. 16-1.</span>
+      </li>
+      <li>
+        <span class="pub-year">2016</span>
+        <a href="#" class="pub-title">"The Secured Credit Card Market"</a>
+        <span class="pub-details">Federal Reserve Bank of Philadelphia Discussion Paper No. 16-3.</span>
+      </li>
+      <li>
+        <span class="pub-year">2015</span>
+        <a href="#" class="pub-title">"Financial Management Tools and Consumer Confidence: Chase Blueprint"</a>
+        <span class="pub-details">Federal Reserve Bank of Philadelphia Discussion Paper No. 15-4.</span>
+      </li>
+      <li>
+        <span class="pub-year">2015</span>
+        <a href="#" class="pub-title">"A Tale of Two Vintages: Credit Limit Management Before and After the CARD Act and Great Recession"</a>
+        <span class="pub-details">Federal Reserve Bank of Philadelphia Discussion Paper No. 15-1.</span>
+      </li>
+    </ul>
+
+    <!-- Reports & Special Studies -->
+    <h3>Reports &amp; Special Studies</h3>
+    <ul class="pub-list">
+      <li>
+        <span class="pub-year">2025</span>
+        <a href="#" class="pub-title">"Trust and Credibility: Comparing Sources of Financial Advice"</a>
+        <span class="pub-details">With Tom Akana. Federal Reserve Bank of Philadelphia.</span>
+      </li>
+      <li>
+        <span class="pub-year">2025</span>
+        <a href="#" class="pub-title">"How Americans Use Social Media for Financial Advice"</a>
+        <span class="pub-details">With Amber Lee and Tom Akana. Federal Reserve Bank of Philadelphia.</span>
+      </li>
+      <li>
+        <span class="pub-year">2024</span>
+        <a href="#" class="pub-title">"Secured Card Market Update"</a>
+        <span class="pub-details">Federal Reserve Bank of Philadelphia Consumer Finance Institute Research Brief.</span>
+      </li>
+      <li>
+        <span class="pub-year">2023</span>
+        <a href="#" class="pub-title">"Summary of The Fourth Workshop on Payments, Lending, and Innovations in Consumer Finance"</a>
+        <span class="pub-details">With Jose Canals Cerda. Federal Reserve Bank of Philadelphia.</span>
+      </li>
+      <li>
+        <span class="pub-year">2021</span>
+        <a href="#" class="pub-title">"Overdraft Use During the Pandemic: Insights from the CFI COVID-19 Survey of Consumers"</a>
+        <span class="pub-details">With Tom Akana. Federal Reserve Bank of Philadelphia Consumer Finance Institute Research Brief.</span>
+      </li>
+      <li>
+        <span class="pub-year">2021</span>
+        <a href="#" class="pub-title">"Summary of the Symposium on Neuroeconomics and Financial Decision-Making: Foundations and Applications in New Domains"</a>
+        <span class="pub-details">Federal Reserve Bank of Philadelphia.</span>
+      </li>
+      <li>
+        <span class="pub-year">2020</span>
+        <a href="#" class="pub-title">"How Has the COVID-19 Pandemic Affected the Supply of Consumer Credit?"</a>
+        <span class="pub-details">Federal Reserve Bank of Philadelphia Consumer Finance Institute Research Brief.</span>
+      </li>
+      <li>
+        <span class="pub-year">2019</span>
+        <a href="#" class="pub-title">"Summary of Aging, Cognition, and Financial Health: Building a Robust System for Older Americans"</a>
+        <span class="pub-details">Federal Reserve Bank of Philadelphia Consumer Finance Institute Conference Summary.</span>
+      </li>
+    </ul>
+
+    <!-- Other Publications -->
+    <h3>Other Publications</h3>
+    <ul class="pub-list">
+      <li>
+        <span class="pub-year">2020</span>
+        <a href="#" class="pub-title">"Prepare Your Community Bank to Surf the Silver Tsunami"</a>
+        <span class="pub-details">With Jeanne Rentezelas. <em>Consumer Compliance Outlook</em>.</span>
+      </li>
+      <li>
+        <span class="pub-year">2019</span>
+        <a href="#" class="pub-title">"Destination Graduation: Secured Credit-Card Graduations Are on the Rise"</a>
+        <span class="pub-details"><em>International Banker</em>.</span>
+      </li>
+      <li>
+        <span class="pub-year">2018</span>
+        <a href="#" class="pub-title">"Banking on Action: Addressing Common Misconceptions about the Role of Banks in Preserving Elder Financial Health"</a>
+        <span class="pub-details"><em>International Banker</em>.</span>
+      </li>
+      <li>
+        <span class="pub-year">2018</span>
+        <a href="#" class="pub-title">"Addressing the Financial Well-Being of Older Adults"</a>
+        <span class="pub-details">Federal Reserve Bank of Philadelphia.</span>
+      </li>
+      <li>
+        <span class="pub-year">2018</span>
+        <a href="#" class="pub-title">"When I'm 64, I May Need...A Little Help from My Friends"</a>
+        <span class="pub-details">With Jeanne Rentezelas. <em>Renaissance Magazine / NJ Foundation for Aging</em>.</span>
+      </li>
+      <li>
+        <span class="pub-year">2018</span>
+        <a href="#" class="pub-title">"How Savvy Is Your Bank? 6 Questions to Protect Your Finances"</a>
+        <span class="pub-details">With Jeanne Rentezelas. <em>Philly.com</em>.</span>
+      </li>
+      <li>
+        <span class="pub-year">2018</span>
+        <a href="#" class="pub-title">"The Role of Cognitive Decline in Financial Elder Abuse, and What We Can Do About It"</a>
+        <span class="pub-details"><em>WHYY</em>.</span>
+      </li>
+      <li>
+        <span class="pub-year">2017</span>
+        <a href="#" class="pub-title">"Secured Credit Cards: Knocking on the Door to Creditworthiness"</a>
+        <span class="pub-details"><em>International Banker</em>.</span>
+      </li>
+    </ul>
+
+    <!-- Blog Posts -->
+    <h3>Blog Posts</h3>
+    <ul class="pub-list">
+      <li>
+        <span class="pub-year">2025</span>
+        <a href="#" class="pub-title">"How Have Historical Housing Barriers Shaped Wealth Inequality?"</a>
+        <span class="pub-details">Pension Research Council, Wharton School of the University of Pennsylvania.</span>
+      </li>
+    </ul>
+
+    <!-- Work in Progress -->
+    <h3>Work in Progress</h3>
+    <ul class="wip-list">
+      <li>
+        <span class="wip-title">"Auto Loan Delinquency"</span>
+        <br><span class="wip-coauthors">Special Report (with Lauren Lambie-Hanson and Justin Zhang)</span>
+      </li>
+      <li>
+        <span class="wip-title">"Alternative Financial Services Users and the COVID-19 Pandemic: Changes in Credit Usage and Repayment"</span>
+        <br><span class="wip-coauthors">Working Paper (with Neil Bhutta, Dan Moulton, and Peter Psathas)</span>
+      </li>
+      <li>
+        <span class="wip-title">"Disaggregating Residential Housing Price Change in Philadelphia, 1936–1946"</span>
+        <br><span class="wip-coauthors">Working Paper (with Dan Moulton)</span>
+      </li>
+      <li>
+        <span class="wip-title">"Navigating Financial Alternatives: Financial Consequences of Bank Branch Closures"</span>
+        <br><span class="wip-coauthors">Working Paper (with Olga Gorbachev and Derrick Liang)</span>
+      </li>
+      <li>
+        <span class="wip-title">"Results from Aging and Caregiving Survey"</span>
+        <br><span class="wip-coauthors">With Lauren Lambie-Hanson and Tom Akana</span>
+      </li>
+      <li>
+        <span class="wip-title">"Research on Effectiveness of Penalty Fees on Credit Card Payment Behavior"</span>
+        <br><span class="wip-coauthors">With Tom Akana, Alicia Johnson, and Daniel Villanova</span>
+      </li>
+      <li>
+        <span class="wip-title">"Do Job Loss Expectations Predict Changes in Consumption?"</span>
+      </li>
+      <li>
+        <span class="wip-title">"Credit Score Volatility"</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- CONFERENCES & PRESENTATIONS -->
+<section id="conferences">
+  <div class="container">
+    <h2>Conferences &amp; Presentations</h2>
+
+    <h3>Conferences Organized</h3>
+    <ul class="event-list">
+      <li><span class="event-date">December 10–11, 2025</span> — Aging and Financial Wellness <em>(forthcoming)</em>, Federal Reserve Bank of Philadelphia</li>
+      <li><span class="event-date">August 15–16, 2024</span> — From Rasters to Rows: New Methods and Applications in Automated Data Extraction, Federal Reserve Bank of Philadelphia</li>
+      <li><span class="event-date">October 26–27, 2022</span> — The Fourth Workshop on Payments, Lending, and Innovations in Consumer Finance, Federal Reserve Bank of Philadelphia</li>
+      <li><span class="event-date">August 6, 2019</span> — Neuroeconomics and Financial Decision-Making: Foundations and Applications in New Domains, Federal Reserve Bank of Philadelphia</li>
+      <li><span class="event-date">November 28–29, 2017</span> — Aging, Cognition, and Financial Health: Building a Robust System for Older Americans, Federal Reserve Bank of Philadelphia</li>
+    </ul>
+
+    <h3>Selected Presentations &amp; Speaking Engagements</h3>
+    <ul class="event-list">
+      <li><span class="event-date">September 2025</span> — Federal Reserve Board of Governors, Division of Consumer and Community Affairs</li>
+      <li><span class="event-date">June 2025</span> — Federal Reserve Board of Governors, Division of Supervision and Regulation</li>
+      <li><span class="event-date">November 2024</span> — 2024 System Credit Bureau Data Users Conference</li>
+      <li><span class="event-date">July 2024</span> — Equitable Wealth Initiative 2024 Roundtable, Philadelphia</li>
+      <li><span class="event-date">March 2023</span> — Pension Research Council, Wharton School of the University of Pennsylvania</li>
+      <li><span class="event-date">June 2022</span> — Official Monetary and Financial Institutions Forum (OMFIF)</li>
+      <li><span class="event-date">February 2022</span> — Tufts University Fletcher School</li>
+      <li><span class="event-date">June 2021</span> — New Jersey Bankers Association</li>
+      <li><span class="event-date">July 2019</span> — FFIEC Advanced BSA/AML Specialists Conference</li>
+      <li><span class="event-date">May 2019</span> — CARD Forum, New Orleans</li>
+      <li><span class="event-date">September 2018</span> — Consumer Financial Protection Bureau</li>
+      <li><span class="event-date">June 2018</span> — Securities and Exchange Commission</li>
+      <li><span class="event-date">March 2018</span> — Center for Medicare and Medicaid Services</li>
+      <li><span class="event-date">May 2017</span> — CARD Forum, Miami</li>
+    </ul>
+  </div>
+</section>
+
+<!-- MEDIA -->
+<section id="media">
+  <div class="container">
+    <h2>Media Appearances &amp; Coverage</h2>
+
+    <h3>Television</h3>
+    <ul class="media-list">
+      <li><span class="media-date">October 2018</span> — <a href="#">Aging Insights: The Fallout of Financial Abuse</a>, Episode 86</li>
+    </ul>
+
+    <h3>Print &amp; Online</h3>
+    <ul class="media-list">
+      <li><span class="media-date">April 2023</span> — <a href="#"><em>Would using location data in AI-based credit models improve fairness?</em></a> <span class="media-outlet">American Banker</span></li>
+      <li><span class="media-date">February 2023</span> — <a href="#"><em>This Philly Fed research has a suggestion for making AI-enabled lending more equitable</em></a> <span class="media-outlet">Technical.ly Philly</span></li>
+      <li><span class="media-date">February 2020</span> — <a href="#"><em>Why more issuers see profit in secured credit cards</em></a> <span class="media-outlet">American Banker</span></li>
+      <li><span class="media-date">August 2019</span> — <a href="#"><em>Startup caters to millennials tired of paying in cash 'like a gangster'</em></a> <span class="media-outlet">American Banker</span></li>
+      <li><span class="media-date">August 2019</span> — <a href="#"><em>I Worked at Capital One. Hacks Like This Are Most Dangerous for Low-Income People</em></a> <span class="media-outlet">TalkPoverty.org</span></li>
+      <li><span class="media-date">July 2019</span> — <a href="#"><em>Planning for Diminished Capacity</em></a> <span class="media-outlet">Financial Advisor Magazine</span></li>
+      <li><span class="media-date">June 2019</span> — <a href="#"><em>How secured credit cards can build, or rebuild, your credit</em></a> <span class="media-outlet">New York Times</span></li>
+      <li><span class="media-date">June 2019</span> — <a href="#"><em>Economics in Brief: Amazon Launches Credit Card for the 'Underbanked'</em></a> <span class="media-outlet">Next City</span></li>
+      <li><span class="media-date">June 2019</span> — <a href="#"><em>Secured Credit Cards: No Longer Hard Money Lending</em></a> <span class="media-outlet">PaymentsJournal</span></li>
+      <li><span class="media-date">June 2019</span> — <a href="#"><em>Amazon's unique new credit card is a play for low-income Americans</em></a> <span class="media-outlet">Quartz</span></li>
+      <li><span class="media-date">June 2019</span> — <a href="#"><em>8 highlights from Card Forum 2019</em></a> <span class="media-outlet">PaymentsSource</span></li>
+      <li><span class="media-date">June 2019</span> — <a href="#"><em>With new secured card, Amazon and Synchrony venture into subprime</em></a> <span class="media-outlet">American Banker</span></li>
+      <li><span class="media-date">April 2019</span> — <a href="#"><em>Planning for Diminished Capacity</em></a> <span class="media-outlet">Financial Advisor Magazine</span></li>
+      <li><span class="media-date">January 2019</span> — <a href="#"><em>Can AI help banks thwart elder abuse?</em></a> <span class="media-outlet">American Banker</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- EDUCATION & SKILLS -->
+<section id="education">
+  <div class="container">
+    <h2>Education &amp; Skills</h2>
+
+    <h3>Education</h3>
+    <div class="edu-item">
+      <div class="degree">M.A., Economics</div>
+      <div class="school">Pennsylvania State University, 2000–2003</div>
+      <div class="note">PhD — All but dissertation</div>
+    </div>
+    <div class="edu-item">
+      <div class="degree">B.A., Economics and Business Administration</div>
+      <div class="school">Ursinus College, 1994–1998</div>
+    </div>
+    <div class="edu-item">
+      <div class="degree">Advanced Calculus and Graduate Biostatistics</div>
+      <div class="school">Virginia Commonwealth University, 1998–2000</div>
+      <div class="note">Non-degree coursework</div>
+    </div>
+
+    <h3>Technical Skills</h3>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h4>Statistical Software</h4>
+        <ul class="skill-tags">
+          <li>Python</li>
+          <li>R / RStudio</li>
+          <li>SAS</li>
+          <li>SQL</li>
+          <li>Stata</li>
+          <li>Knowledge Studio</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>AI &amp; Development</h4>
+        <ul class="skill-tags">
+          <li>VS Code</li>
+          <li>GitHub Copilot</li>
+          <li>Claude Code</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>Visualization</h4>
+        <ul class="skill-tags">
+          <li>Tableau</li>
+          <li>Excel</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>Specialized</h4>
+        <ul class="skill-tags">
+          <li>Machine Learning</li>
+          <li>XGBoost</li>
+          <li>Econometrics</li>
+          <li>Credit Risk Analysis</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <h2>Contact &amp; Links</h2>
+    <p style="opacity:0.9; margin-bottom: 1.5rem;">
+      I welcome inquiries about my research, speaking opportunities, and potential collaborations.
+    </p>
+    <ul class="contact-links">
+      <li><a href="mailto:lsantucci.nj@gmail.com">✉ lsantucci.nj@gmail.com</a></li>
+      <li><a href="https://www.linkedin.com/in/larrysantucci" target="_blank">LinkedIn</a></li>
+      <li><a href="https://ideas.repec.org/e/psa157.html" target="_blank">IDEAS / RePEc</a></li>
+      <li><a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=2168404" target="_blank">SSRN</a></li>
+      <li><a href="#" target="_blank">Philadelphia Fed Profile</a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p>The views expressed here are my own and do not reflect the views of the Federal Reserve Bank of Philadelphia or the Federal Reserve System.</p>
+    <p style="margin-top:6px;">Nothing here should be construed as an endorsement of any organization or its products or services.</p>
+  </div>
+</footer>
+
+<!-- CLOSE MOBILE MENU ON LINK CLICK -->
+<script>
+  document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.querySelector('nav ul').classList.remove('open');
+    });
+  });
+</script>
+
+</body>
+</html>
